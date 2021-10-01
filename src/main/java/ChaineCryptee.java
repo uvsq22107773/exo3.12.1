@@ -9,11 +9,18 @@ public class ChaineCryptee {
         int cle = 2 ;
         ChaineCryptee chaine = new ChaineCryptee(s,cle);
         System.out.println("String : "+s);
-        System.out.println("Crypted cle "+cle+" : "+chaine.crypte(s,cle));
+        String cipher = chaine.crypte(s,cle);
+        System.out.println("Crypted cle "+cle+" : "+cipher);
+        System.out.println("DeCrypted cle "+cle+" : "+chaine.decrypte(cipher,cle));
 
     }
     static String decrypte(String s, int cle){
-        return null;
+        cle = -cle;
+        String newstring = "";
+        for (int i=0 ; i<s.length();i++){
+            newstring = newstring + decaleCaractere(s.charAt(i),cle);
+        }
+        return newstring;
     }
     static String crypte(String s, int cle){
         String newstring = "";
