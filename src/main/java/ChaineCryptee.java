@@ -1,32 +1,29 @@
 import java.util.Scanner;
 
 public class ChaineCryptee {
-    String SS;
-    int CLE;
+    private String SS;
+    private int CLE;
 
     ChaineCryptee(String s, int cle){
         this.SS=s;
         this.CLE=cle;
 
-        if (s==""){
+        if (this.SS==""){
             System.out.println("la chaine est NULL");
         }
-        if (cle==0){
+        if (this.CLE==0){
             System.out.println("cle egale a zero ");
         }
     }
     public static void main(String[] args) {
-        String s = "ABCDEFGH";
-        int cle = 2 ;
-
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter Chaine : ");
-        ChaineCryptee chaine = new ChaineCryptee(myObj.nextLine(),cle);
+        ChaineCryptee chaine = new ChaineCryptee(myObj.nextLine(),2);
 
-        System.out.println("String : "+s);
+        System.out.println("String : "+chaine.SS);
         String cipher = chaine.crypte();
-        System.out.println("Crypted cle "+cle+" : "+cipher);
-        System.out.println("DeCrypted cle "+cle+" : "+chaine.decrypte(cipher));
+        System.out.println("Crypted cle "+chaine.CLE+" : "+cipher);
+        System.out.println("DeCrypted cle "+chaine.CLE+" : "+chaine.decrypte(cipher));
 
     }
     String decrypte(String s){
