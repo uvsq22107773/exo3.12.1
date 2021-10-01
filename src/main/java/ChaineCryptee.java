@@ -1,9 +1,15 @@
 public class ChaineCryptee {
+    ChaineCryptee(String s, int cle){
+        if (s==""){
+            System.out.println("String est NULL");
+        }
+    }
     public static void main(String[] args) {
         String s = "ABCDEFGH";
         int cle = 2 ;
+        ChaineCryptee chaine = new ChaineCryptee(s,cle);
         System.out.println("String : "+s);
-        System.out.println("Crypted cle "+cle+" : "+crypte(s,cle));
+        System.out.println("Crypted cle "+cle+" : "+chaine.crypte(s,cle));
 
     }
     static String decrypte(String s, int cle){
