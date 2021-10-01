@@ -1,7 +1,13 @@
 public class ChaineCryptee {
     ChaineCryptee(String s, int cle){
+        String S=s;
+        int CLE=cle;
+
         if (s==""){
-            System.out.println("String est NULL");
+            System.out.println("la chaine est NULL");
+        }
+        if (cle==0){
+            System.out.println("cle egale a zero ");
         }
     }
     public static void main(String[] args) {
