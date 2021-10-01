@@ -1,7 +1,12 @@
+import java.util.Scanner;
+
 public class ChaineCryptee {
+    String SS;
+    int CLE;
+
     ChaineCryptee(String s, int cle){
-        String S=s;
-        int CLE=cle;
+        this.SS=s;
+        this.CLE=cle;
 
         if (s==""){
             System.out.println("la chaine est NULL");
@@ -13,25 +18,29 @@ public class ChaineCryptee {
     public static void main(String[] args) {
         String s = "ABCDEFGH";
         int cle = 2 ;
-        ChaineCryptee chaine = new ChaineCryptee(s,cle);
+
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter Chaine : ");
+        ChaineCryptee chaine = new ChaineCryptee(myObj.nextLine(),cle);
+
         System.out.println("String : "+s);
-        String cipher = chaine.crypte(s,cle);
+        String cipher = chaine.crypte();
         System.out.println("Crypted cle "+cle+" : "+cipher);
-        System.out.println("DeCrypted cle "+cle+" : "+chaine.decrypte(cipher,cle));
+        System.out.println("DeCrypted cle "+cle+" : "+chaine.decrypte(cipher));
 
     }
-    static String decrypte(String s, int cle){
-        cle = -cle;
+    String decrypte(String s){
+        int cle = -this.CLE;
         String newstring = "";
         for (int i=0 ; i<s.length();i++){
             newstring = newstring + decaleCaractere(s.charAt(i),cle);
         }
         return newstring;
     }
-    static String crypte(String s, int cle){
+    String crypte(){
         String newstring = "";
-        for (int i=0 ; i<s.length();i++){
-            newstring = newstring + decaleCaractere(s.charAt(i),cle);
+        for (int i=0 ; i<this.SS.length();i++){
+            newstring = newstring + decaleCaractere(this.SS.charAt(i),this.CLE);
         }
         return newstring;
     }
